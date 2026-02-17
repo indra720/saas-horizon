@@ -1,8 +1,10 @@
 import { Bell, Globe, Search, ChevronDown } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import { useNavigate } from "react-router-dom";
 
 export function TopNavbar() {
+  const navigate = useNavigate();
   return (
     <header className="sticky top-0 z-20 flex h-16 items-center justify-between border-b border-border bg-card/80 backdrop-blur-sm px-6">
       {/* Left */}
@@ -28,7 +30,7 @@ export function TopNavbar() {
         </button>
 
         {/* Notifications */}
-        <button className="relative flex h-9 w-9 items-center justify-center rounded-xl text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">
+        <button onClick={() => navigate("/notifications")} className="relative flex h-9 w-9 items-center justify-center rounded-xl text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">
           <Bell className="h-4 w-4" />
           <Badge className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-destructive p-0 text-[10px] text-destructive-foreground">
             3
@@ -36,7 +38,7 @@ export function TopNavbar() {
         </button>
 
         {/* Profile */}
-        <div className="flex items-center gap-2 rounded-xl border border-border px-3 py-1.5">
+        <div onClick={() => navigate("/profile")} className="flex items-center gap-2 rounded-xl border border-border px-3 py-1.5 cursor-pointer hover:bg-muted transition-colors">
           <Avatar className="h-7 w-7">
             <AvatarFallback className="bg-primary text-xs text-primary-foreground">
               AD
