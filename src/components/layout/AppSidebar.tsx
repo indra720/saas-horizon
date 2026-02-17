@@ -11,6 +11,8 @@ import {
   ChevronLeft,
   ChevronRight,
   Layers,
+  User,
+  Bell,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
@@ -22,6 +24,8 @@ const menuItems = [
   { title: "Plan Requests", path: "/plan-requests", icon: FileText },
   { title: "Orders", path: "/orders", icon: Package },
   { title: "Analytics", path: "/analytics", icon: BarChart3 },
+  { title: "Notifications", path: "/notifications", icon: Bell },
+  { title: "Profile", path: "/profile", icon: User },
   { title: "Settings", path: "/settings", icon: Settings },
 ];
 

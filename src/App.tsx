@@ -8,6 +8,11 @@ import Dashboard from "./pages/Dashboard";
 import ManageUsers from "./pages/ManageUsers";
 import Plans from "./pages/Plans";
 import PlanRequests from "./pages/PlanRequests";
+import Orders from "./pages/Orders";
+import Analytics from "./pages/Analytics";
+import Settings from "./pages/Settings";
+import Profile from "./pages/Profile";
+import Notifications from "./pages/Notifications";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +29,11 @@ const App = () => (
             <Route path="/users" element={<ManageUsers />} />
             <Route path="/plans" element={<Plans />} />
             <Route path="/plan-requests" element={<PlanRequests />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/analytics" element={<Analytics />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/notifications" element={<Notifications />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </DashboardLayout>
