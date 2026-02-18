@@ -205,7 +205,7 @@ export default function PlansPage() {
 
       {/* Edit / Create Plan Dialog */}
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="w-[90vw] lg:max-w-4xl max-h-[90vh] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           <DialogHeader>
             <DialogTitle>{editingIndex !== null ? "Edit Plan" : "Create Plan"}</DialogTitle>
           </DialogHeader>

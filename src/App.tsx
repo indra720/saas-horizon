@@ -14,6 +14,9 @@ import Settings from "./pages/Settings";
 import Profile from "./pages/Profile";
 import Notifications from "./pages/Notifications";
 import NotFound from "./pages/NotFound";
+import Coupns from "./pages/Coupns";
+import EmailTemplates from "./pages/EmailTemplates";
+import LandingPages from "./pages/LandingPages";
 
 const queryClient = new QueryClient();
 
@@ -29,7 +32,10 @@ const App = () => (
             <Route path="/users" element={<ManageUsers />} />
             <Route path="/plans" element={<Plans />} />
             <Route path="/plan-requests" element={<PlanRequests />} />
+            <Route path="/coupn" element={<Coupns/>}/>
             <Route path="/orders" element={<Orders />} />
+            <Route path="/email-templates" element={<EmailTemplates />} />
+            <Route path="/landing-pages" element={<LandingPages />} />
             <Route path="/analytics" element={<Analytics />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/profile" element={<Profile />} />
