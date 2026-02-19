@@ -82,9 +82,14 @@ export function AppSidebar({ collapsed, setCollapsed }: { collapsed: boolean; se
                   ? "bg-primary text-primary-foreground shadow-sm"
                   : "text-muted-foreground hover:bg-muted hover:text-foreground"
               )}
-              onClick={() => { // close sidebar on mobile when a link is clicked
+              onClick={() => {
+                // On mobile, close sidebar when a link is clicked
                 if (isMobile && !collapsed) {
                   setCollapsed(true);
+                }
+                // On desktop, expand sidebar if it's collapsed when a link is clicked
+                else if (!isMobile && collapsed) {
+                  setCollapsed(false);
                 }
               }}
             >
