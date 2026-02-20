@@ -46,8 +46,7 @@ export function AppSidebar({ collapsed, setCollapsed }: { collapsed: boolean; se
           : { width: collapsed ? 72 : 260 }
       }
       transition={{ duration: 0.25, ease: "easeInOut" }}
-      className="fixed inset-y-0 left-0 top-0 z-30 flex flex-col border-r border-border bg-card"
-      style={{ height: "100vh" }}
+      className="fixed inset-y-0 left-0 top-0 z-30 flex flex-col border-r border-border bg-card h-screen"
     >
       {/* Logo */}
       <div className="flex h-16 items-center gap-3 border-b border-border px-4">

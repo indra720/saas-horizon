@@ -53,7 +53,8 @@ const CustomPageContent = () => {
 
   return (
     <>
-      <div className='flex flex-col gap-2'>
+      <div className='flex flex-col gap-4 '>
+        {/* home section */}
         <div className='p-2 bg-card rounded-sm border-b'>
           <div className='flex p-2'>
             <h4 className="text-sm font-semibold text-foreground">Home Section</h4>
@@ -111,8 +112,9 @@ const CustomPageContent = () => {
             <Button className="bg-[#0d786b] hover:bg-[#0a5e54]">Save Changes</Button>
           </div>
         </div>
-
-        <div className='p-2 bg-card rounded-sm border-t'>
+       
+       {/* menu bar  */}
+        <div className='p-2 bg-card rounded-sm border-t '>
           <div className='flex justify-between items-center p-2'>
             <h4 className="text-sm font-semibold text-foreground">Menu Bar</h4>
             <div className="relative group">
@@ -137,9 +139,9 @@ const CustomPageContent = () => {
             <Table>
               <TableHeader className='bg-muted/50'>
                 <TableRow>
-                  <TableHead className="w-[80px]">No</TableHead>
-                  <TableHead>Name</TableHead>
-                  <TableHead className="text-right px-6">Action</TableHead>
+                  <TableHead className="w-1/3">No</TableHead>
+                  <TableHead className='w-1/3'>Name</TableHead>
+                  <TableHead className=" w-1/3 px-6">Action</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -148,7 +150,7 @@ const CustomPageContent = () => {
                     <TableCell className="font-medium">{index + 1}</TableCell>
                     <TableCell>{item.name}</TableCell>
                     <TableCell className="text-right px-6">
-                      <div className="flex justify-end items-center gap-4">
+                      <div className="flex  items-center gap-4">
                         <button 
                           onClick={() => handleEdit(item)}
                           className="text-blue-600 hover:text-blue-800 transition-colors p-1 rounded-full hover:bg-blue-50"

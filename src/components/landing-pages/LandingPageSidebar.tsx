@@ -22,7 +22,7 @@ const subPageItems = [
 
 const LandingPageSidebar: React.FC<LandingPageSidebarProps> = ({ activeSubPage, onSelectSubPage }) => {
   return (
-    <aside className="w-100 lg:w-64 min-w-64  border-r border-border bg-card p-4 space-y-2">
+    <aside className="w-48  md:w-56 lg:w-64 border-r border-border bg-card p-4 space-y-2">
       <h3 className="text-lg font-semibold mb-4 text-foreground">Mini-Project Sidebar</h3>
       {subPageItems.map((item) => (
         <Button

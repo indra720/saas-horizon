@@ -2,14 +2,16 @@ import React, { useState, useEffect } from 'react'; // Added useEffect
 import LandingPageSidebar from '@/components/landing-pages/LandingPageSidebar';
 import TopBarContent from '@/components/landing-pages/TopBarContent';
 import CustomPageContent from '@/components/landing-pages/CustomPageContent';
-import HomeContent from '@/components/landing-pages/HomeContent';
-import FeaturesContent from '@/components/landing-pages/FeaturesContent';
+
+
 import DiscoverContent from '@/components/landing-pages/DiscoverContent';
 import ScreenshotsContent from '@/components/landing-pages/ScreenshotsContent';
 import PricingPlanContent from '@/components/landing-pages/PricingPlanContent';
 import FaqContent from '@/components/landing-pages/FaqContent';
 import TestimonialContent from '@/components/landing-pages/TestimonialContent';
 import JournalContent from '@/components/landing-pages/JournalContent';
+import FeatureContent from '@/components/landing-pages/FeatureContent';
+import HomeContent from '@/components/landing-pages/HomeContent';
 
 const LandingPages = () => {
   // Initialize state from localStorage or default to 'home'
@@ -30,9 +32,9 @@ const LandingPages = () => {
       case 'custom-page':
         return <CustomPageContent />;
       case 'home':
-        return <HomeContent />;
+        return <HomeContent/>;
       case 'features':
-        return <FeaturesContent />;
+        return <FeatureContent/>;
       case 'discover':
         return <DiscoverContent />;
       case 'screenshots':
