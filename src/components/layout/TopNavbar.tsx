@@ -42,12 +42,12 @@ export function TopNavbar({
             </button>
           ) : (
             <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input
-                  type="text"
-                  placeholder="Search..."
-                  className="pl-9 pr-3 py-2 rounded-md w-[200px]"
-                />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <Input
+                type="text"
+                placeholder="Search..."
+                className="pl-9 pr-3 py-2 rounded-md w-[200px]"
+              />
             </div>
           )}
 
@@ -88,11 +88,12 @@ export function TopNavbar({
       <AnimatePresence>
         {isMobile && showSearchDropdown && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
+            initial={{ opacity: 0, y: -20, scaleY: 0.8 }}
+            animate={{ opacity: 1, y: 0, scaleY: 1 }}
+            exit={{ opacity: 0, y: -20, scaleY: 0.8 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="sticky top-16 z-10 bg-card border-b border-border p-3"
+            style={{ transformOrigin: "top" }}
+            className="fixed top-16 z-30 w-full bg-card border-b border-border p-3"
           >
             <Input
               type="text"

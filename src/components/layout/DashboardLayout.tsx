@@ -9,7 +9,7 @@ interface DashboardLayoutProps {
 }
 
 export function DashboardLayout({ children }: DashboardLayoutProps) {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
   const isMobile = useIsMobile();
 
   return (
@@ -24,7 +24,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
         )}
       >
         <TopNavbar setSidebarCollapsed={setCollapsed} sidebarCollapsed={collapsed} />
-        <main className="flex-1 p-6">{children}</main>
+        <main className="flex-1 p-2">{children}</main>
       </div>
 
       {isMobile && !collapsed && (

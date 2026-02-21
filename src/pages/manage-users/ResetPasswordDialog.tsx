@@ -43,7 +43,7 @@ export function ResetPasswordDialog({ open, onOpenChange, onSave }: ResetPasswor
           <DialogTitle>Reset Password</DialogTitle>
         </DialogHeader>
         <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-2 items-center  gap-4">
+          <div className=" items-center  gap-2">
             <Label htmlFor="password" className="text-left">
               New Password
             </Label>
@@ -55,9 +55,9 @@ export function ResetPasswordDialog({ open, onOpenChange, onSave }: ResetPasswor
               className="col-span-3"
             />
           </div>
-          <div className="grid grid-cols-2 items-center gap-4">
+          <div className=" items-center gap-2">
             <Label htmlFor="confirm-password" className="text-left">
-              <span className="">Confirm Password</span>
+              Confirm Password
             </Label>
             <Input
               id="confirm-password"

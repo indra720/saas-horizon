@@ -42,7 +42,7 @@ export function AppSidebar({ collapsed, setCollapsed }: { collapsed: boolean; se
     <motion.aside
       animate={
         isMobile
-          ? { x: collapsed ? -260 : 0 }
+          ? { x: collapsed ? -260 : 0, width: collapsed ? 0 : 260 }
           : { width: collapsed ? 72 : 260 }
       }
       transition={{ duration: 0.25, ease: "easeInOut" }}
@@ -82,11 +82,11 @@ export function AppSidebar({ collapsed, setCollapsed }: { collapsed: boolean; se
                   : "text-muted-foreground hover:bg-muted hover:text-foreground"
               )}
               onClick={() => {
-                // On mobile, close sidebar when a link is clicked
+                // On mobile: If sidebar is open, close it upon clicking a navigation item.
                 if (isMobile && !collapsed) {
                   setCollapsed(true);
                 }
-                // On desktop, expand sidebar if it's collapsed when a link is clicked
+                // On desktop: If sidebar is collapsed, open it upon clicking a navigation item.
                 else if (!isMobile && collapsed) {
                   setCollapsed(false);
                 }

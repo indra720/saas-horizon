@@ -30,13 +30,13 @@ export function AddUserDialog({ open, onOpenChange, onSave }: AddUserDialogProps
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="w-[90vw] lg:max-w-md max-h-[90vh]">
+      <DialogContent className="w-[90vw] lg:max-w-md max-h-[90vh] rounded-md">
         <DialogHeader>
           <DialogTitle>Add New User</DialogTitle>
         </DialogHeader>
         <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
+          <div className="grid grid-cols-2  items-center gap-2">
+            <Label htmlFor="name" className="text-left">
               Name
             </Label>
             <Input
@@ -46,8 +46,8 @@ export function AddUserDialog({ open, onOpenChange, onSave }: AddUserDialogProps
               className="col-span-3"
             />
           </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="email" className="text-right">
+          <div className="grid grid-cols-2 items-center gap-4">
+            <Label htmlFor="email" className="text-left">
               Email
             </Label>
             <Input
@@ -58,8 +58,8 @@ export function AddUserDialog({ open, onOpenChange, onSave }: AddUserDialogProps
               className="col-span-3"
             />
           </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="password" className="text-right">
+          <div className="grid grid-cols-2 items-center gap-4">
+            <Label htmlFor="password" className="text-left">
               Password
             </Label>
             <Input
@@ -71,7 +71,7 @@ export function AddUserDialog({ open, onOpenChange, onSave }: AddUserDialogProps
             />
           </div>
         </div>
-        <DialogFooter>
+        <DialogFooter className="gap-2">
           <Button variant="outline" onClick={() => onOpenChange(false)}>
             Cancel
           </Button>

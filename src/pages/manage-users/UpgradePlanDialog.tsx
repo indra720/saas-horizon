@@ -22,9 +22,9 @@ export function UpgradePlanDialog({ open, onOpenChange, onUpgrade, userName }: U
   const [selectedPlan, setSelectedPlan] = useState("padi_plain_month");
 
   const plans = [
-    { id: "padi_plain_month", name: "Padi Plain Month", price: "$10/month" },
-    { id: "exclusive_month", name: "Exclusive Month", price: "$25/month" },
-    { id: "restropent_lifetime", name: "Restropent Lifetime", price: "$99/one-time" },
+    { id: "padi_plain_month", name: "Padi Plain Month", price: "$10/month", usersLimit: 5, customersLimit: 50, vendorsLimit: 5 },
+    { id: "exclusive_month", name: "Exclusive Month", price: "$25/month", usersLimit: 20, customersLimit: 200, vendorsLimit: 20 },
+    { id: "restropent_lifetime", name: "Restropent Lifetime", price: "$99/one-time", usersLimit: 999, customersLimit: 9999, vendorsLimit: 999 },
   ];
 
   const handleUpgrade = () => {
@@ -33,7 +33,7 @@ export function UpgradePlanDialog({ open, onOpenChange, onUpgrade, userName }: U
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="w-[90vw] lg:max-w-md max-h-[90vh]">
+      <DialogContent className="w-[90vw] lg:max-w-5xl max-h-[90vh] overflow-y-auto rounded-md [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
         <DialogHeader>
           <DialogTitle>Upgrade Plan for {userName}</DialogTitle>
         </DialogHeader>
@@ -42,42 +42,65 @@ export function UpgradePlanDialog({ open, onOpenChange, onUpgrade, userName }: U
             Select a new plan for {userName}.
           </p>
 
-          <RadioGroup value={selectedPlan} onValueChange={setSelectedPlan} className="grid gap-2">
+          {/* Header Row for the table */}
+          <div className="grid grid-cols-5 gap-4 px-4 py-2 font-semibold border-b border-border">
+            <div>Plan</div>
+            <div className="text-center">Users</div>
+            <div className="text-center">Customers</div>
+            <div className="text-center">Vendors</div>
+            <div className="text-right">Action</div>
+          </div>
+
+          <RadioGroup value={selectedPlan} onValueChange={setSelectedPlan} className="gap-2">
             {plans.map((plan) => (
-              <div key={plan.id} className="flex items-center space-x-2 p-2 border rounded-md">
-                <RadioGroupItem value={plan.id} id={plan.id} />
-                <Label htmlFor={plan.id} className="flex-1">
-                  <span className="font-medium">{plan.name}</span>
-                  <span className="ml-2 text-muted-foreground">{plan.price}</span>
-                </Label>
-                <Crown className="h-4 w-4 text-primary" />
+              <div key={plan.id} className="grid grid-cols-5 items-center gap-4 p-4 border rounded-lg shadow-sm">
+                {/* Column 1: Plan Details */}
+                <div className="flex items-center space-x-4">
+                  <RadioGroupItem value={plan.id} id={plan.id} className="shrink-0" />
+                  <Label htmlFor={plan.id} className="flex flex-col flex-1 cursor-pointer">
+                    <span className="font-semibold text-lg">{plan.name}</span>
+                    <span className="text-muted-foreground text-sm">{plan.price}</span>
+                  </Label>
+                </div>
+
+                {/* Column 2: Users Count */}
+                <div className="text-sm text-muted-foreground text-center">
+                  <span>{plan.usersLimit}</span>
+                </div>
+
+                {/* Column 3: Customers Count */}
+                <div className="text-sm text-muted-foreground text-center">
+                  <span>{plan.customersLimit}</span>
+                </div>
+
+                {/* Column 4: Vendors Count */}
+                <div className="text-sm text-muted-foreground text-center">
+                  <span>{plan.vendorsLimit}</span>
+                </div>
+
+                {/* Column 5: Upgrade Button */}
+                <div className="flex justify-end">
+                  <Button
+                    size="sm"
+                    onClick={() => onUpgrade(plan.id)}
+                    disabled={selectedPlan === plan.id}
+                    className="w-full sm:w-auto"
+                  >
+                    {selectedPlan === plan.id ? "Current Plan" : "Upgrade"}
+                  </Button>
+                </div>
               </div>
             ))}
           </RadioGroup>
 
-          <div className="mt-4">
-            <h4 className="font-semibold mb-2">Features Included:</h4>
-            <ul className="list-disc list-inside text-sm text-muted-foreground">
-              <li>Manage unlimited users</li>
-              <li>Dedicated customer support</li>
-              <li>Access to premium templates</li>
-            </ul>
-          </div>
-
-          <div className="mt-4">
-            <h4 className="font-semibold mb-2">User Types:</h4>
-            <ul className="list-disc list-inside text-sm text-muted-foreground">
-              <li>Users</li>
-              <li>Customers</li>
-              <li>Vendors</li>
-            </ul>
-          </div>
         </div>
-        <DialogFooter>
+        <DialogFooter className="gap-2">
           <Button variant="outline" onClick={() => onOpenChange(false)}>
             Cancel
           </Button>
-          <Button onClick={handleUpgrade}>Upgrade Plan</Button>
+          <Button onClick={handleUpgrade} disabled={true}> {/* Generic upgrade button disabled now that there are per-plan buttons */}
+            Upgrade Plan
+          </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
