@@ -28,7 +28,7 @@ const HomeContent = () => {
 
 
           {/* Description */}
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
+          <div className='flex flex-col md:grid grid-cols-1 md:grid-cols-2 gap-2'>
             <div className='flex flex-col gap-2'>
               <span className='text-sm'>Offer Text</span>
               <input type='text'

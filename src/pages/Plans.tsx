@@ -135,7 +135,7 @@ export default function PlansPage() {
         </div>
         <Button onClick={openCreate} className="gap-2 rounded-xl">
           <Plus className="h-4 w-4" />
-          Create Plan
+          <span className="hidden sm:inline"> Create Plan</span>
         </Button>
       </div>
 
@@ -147,9 +147,8 @@ export default function PlansPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1, duration: 0.4 }}
             whileHover={{ scale: 1.02 }}
-            className={`relative rounded-2xl border bg-card p-6 transition-all duration-300 ${
-              plan.popular ? "border-primary card-glow" : "border-border card-shadow hover:card-shadow-hover"
-            }`}
+            className={`relative rounded-2xl border bg-card p-6 transition-all duration-300 ${plan.popular ? "border-primary card-glow" : "border-border card-shadow hover:card-shadow-hover"
+              }`}
           >
             {plan.popular && (
               <div className="absolute -top-3 left-1/2 -translate-x-1/2">
@@ -197,21 +196,22 @@ export default function PlansPage() {
               className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
             >
               <Edit className="h-4 w-4" />
-              Edit Plan
+              <span className="">Edit Plan</span>
             </button>
           </motion.div>
         ))}
       </div>
 
+
       {/* Edit / Create Plan Dialog */}
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-        <DialogContent className="w-[90vw] lg:max-w-4xl max-h-[90vh] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        <DialogContent className="w-[90vw] lg:max-w-4xl max-h-[90vh] rounded-md overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           <DialogHeader>
             <DialogTitle>{editingIndex !== null ? "Edit Plan" : "Create Plan"}</DialogTitle>
           </DialogHeader>
 
-          <div className="grid gap-4 py-4">
-            <div className="grid grid-cols-2 gap-4">
+          <div className="grid  gap-4 py-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label>Name</Label>
                 <Input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Plan name" />
@@ -222,7 +222,7 @@ export default function PlansPage() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label>Duration</Label>
                 <Select value={form.duration} onValueChange={(v) => setForm({ ...form, duration: v })}>
@@ -241,7 +241,7 @@ export default function PlansPage() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label>Maximum Customers</Label>
                 <Input value={form.maxCustomers} onChange={(e) => setForm({ ...form, maxCustomers: e.target.value })} placeholder="100" />
@@ -254,7 +254,7 @@ export default function PlansPage() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2  gap-4">
               <div className="space-y-2">
                 <Label>Maximum Clients</Label>
                 <Input value={form.maxClients} onChange={(e) => setForm({ ...form, maxClients: e.target.value })} placeholder="100" />
@@ -277,7 +277,7 @@ export default function PlansPage() {
 
             <div>
               <Label className="mb-3 block">Modules</Label>
-              <div className="grid grid-cols-4 gap-3">
+              <div className="grid grid-col-2 md:grid-cols-4 gap-3">
                 {Object.keys(form.modules).map((mod) => (
                   <div key={mod} className="flex items-center gap-2">
                     <Switch
@@ -293,7 +293,7 @@ export default function PlansPage() {
             </div>
           </div>
 
-          <DialogFooter>
+          <DialogFooter className="gap-2">
             <Button variant="outline" onClick={() => setDialogOpen(false)}>Cancel</Button>
             <Button onClick={handleSave}>{editingIndex !== null ? "Update" : "Create"}</Button>
           </DialogFooter>

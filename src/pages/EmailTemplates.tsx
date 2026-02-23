@@ -145,9 +145,9 @@ const EmailTemplates = () => {
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="new_user">New User</SelectItem>
-                <SelectItem value="forgot_password">Forgot Password</SelectItem>
-                <SelectItem value="order_confirmation">Order Confirmation</SelectItem>
-                <SelectItem value="welcome_back">Welcome Back</SelectItem>
+                <SelectItem value="forgot_password">New Support Ticket</SelectItem>
+                <SelectItem value="order_confirmation">New Client</SelectItem>
+                <SelectItem value="welcome_back">Lead Assigned</SelectItem>
               </SelectContent>
             </Select>
           </div>

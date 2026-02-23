@@ -2,7 +2,7 @@ import { Bell, Globe, Search, ChevronDown, Menu } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { useNavigate } from "react-router-dom";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { useIsMdAndSmaller } from "@/hooks/use-md-and-smaller";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
@@ -17,7 +17,7 @@ export function TopNavbar({
   sidebarCollapsed: boolean;
 }) {
   const navigate = useNavigate();
-  const isMobile = useIsMobile();
+  const isMdAndSmaller = useIsMdAndSmaller();
   const [showSearchDropdown, setShowSearchDropdown] = useState(false);
 
   return (
@@ -25,7 +25,7 @@ export function TopNavbar({
       <header className="sticky top-0 z-20 flex h-16 items-center justify-between border-b border-border bg-card/80 backdrop-blur-sm px-6">
         {/* Left */}
         <div className="flex items-center gap-3">
-          {isMobile && (
+          {isMdAndSmaller && (
             <button
               className="flex h-9 w-9 items-center justify-center rounded-xl text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
               onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
@@ -33,7 +33,7 @@ export function TopNavbar({
               <Menu className="h-4 w-4" />
             </button>
           )}
-          {isMobile ? (
+          {isMdAndSmaller ? (
             <button
               className="flex h-9 w-9 items-center justify-center rounded-xl text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
               onClick={() => setShowSearchDropdown(!showSearchDropdown)}
@@ -86,7 +86,7 @@ export function TopNavbar({
         </div>
       </header>
       <AnimatePresence>
-        {isMobile && showSearchDropdown && (
+        {isMdAndSmaller && showSearchDropdown && (
           <motion.div
             initial={{ opacity: 0, y: -20, scaleY: 0.8 }}
             animate={{ opacity: 1, y: 0, scaleY: 1 }}
